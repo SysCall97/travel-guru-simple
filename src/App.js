@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import View from './components/View/View';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export const userContext = React.createContext();
 
 function App() {
+  const [loggedinUser, setLoggedinUser] = useState({});
+  const [bookingDetails, setBookingDetails] = useState({});
+  const [whiteBg, setWhiteBg] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <userContext.Provider 
+      value={{
+        user: [loggedinUser, setLoggedinUser], 
+        booking: [bookingDetails, setBookingDetails],
+        background: [whiteBg, setWhiteBg]
+    }}>
+      <View />
+    </userContext.Provider>
   );
 }
 

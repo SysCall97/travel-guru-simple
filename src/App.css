@@ -1,38 +1,112 @@
 .App {
   text-align: center;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button, .button{
+  background-color: #F9A51A;
+  border: 1px solid #F9A51A;
+  border-radius: 5px !important;
+  padding: 1vh 2vw;
+  width: auto;
+  height: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input{
+  width: 15em;
+  height: 10%;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgray;
+  padding: 0 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.formPage{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-bottom: 10vh;
 }
 
-.App-link {
-  color: #61dafb;
+.formContainer{
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.signinForm{
+  padding: 5vh 10vw;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.signInInput{
+  width: 100%;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  /* border-bottom-style: 1px solid yellow; */
+  background-color: #fff;
+  padding-left: 0.1vw;
+}
+
+.signInInput:focus {
+  outline: none;
+}
+
+.forgotPassword{
+  padding-right: 2vw;
+  cursor: pointer;
+}
+
+.forgotPassword, .createAccount{
+  color: #F9A51A;
+  text-decoration: none !important;
+}
+
+.createAccount:hover{
+  text-decoration: none;
+}
+
+.or:after,
+.or:before{
+    content:"\00a0\00a0\00a0\00a0\00a0";
+    text-decoration:line-through;
+}
+
+.fireAuth{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  width: auto;
+  margin-top: 2vh;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.fireAuth:hover{
+  background-color: lightgray;
+}
+
+.authLogo{
+  width: 20%;
+  margin-right: 2vw;
+}
+
+.authTitle{
+  padding: 0 ;
+  margin-right: 3vw;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
