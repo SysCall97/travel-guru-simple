@@ -8,9 +8,51 @@ export const initializeLogInFramework = () => {
     }
 }
 
-export const googleSignIn = () => {}
+export const googleSignIn = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return firebase.auth().signInWithPopup(provider)
+    .then(res => {
+        console.log(res);
+        const newUser = {
+            displayName: res.user.displayName,
+            email: res.user.email,
+            loggedIn: true,
+            error: ""
+        }
+        return newUser;
+    })
+    .catch(error => {
+        const newUserInfo = {
+            loggedIn: false,
+            error: error.message,
+        };
+        newUserInfo.isLoggedIn = false;
+        return newUserInfo;
+    });
+}
 
-export const facebookSignIn = () => {}
+export const facebookSignIn = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    return firebase.auth().signInWithPopup(provider)
+    .then(res => {
+        console.log(res);
+        const newUser = {
+            displayName: res.user.displayName,
+            email: res.user.email,
+            loggedIn: true,
+            error: ""
+        }
+        return newUser;
+    })
+    .catch(error => {
+        const newUserInfo = {
+            loggedIn: false,
+            error: error.message,
+        };
+        newUserInfo.isLoggedIn = false;
+        return newUserInfo;
+    });
+}
 
 export const emailSignIn = (name, email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -35,9 +77,32 @@ export const emailSignIn = (name, email, password) => {
     })
 }
 
-export const emailLogIn = (email, password) => {}
+export const emailLogIn = (email, password) => {
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(res => {
+        const user = firebase.auth().currentUser;
+        const newUser = {
+            displayName: user.displayName,
+            email: user.email,
+            loggedIn: true,
+            error: ""
+        }
+        return newUser;
+    })
+    .catch(error => {
+        const newUser = {
+            error: error.message
+        }
+        return newUser;
+    })
+}
 
-export const signOut = (name, email, password) => {}
+export const signOut = () => {
+    return firebase.auth().signOut()
+    .then(res => {
+        return {};
+    })
+}
 
 export const passwordRecover = (email, password) => {}
 

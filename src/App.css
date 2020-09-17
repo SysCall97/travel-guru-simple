@@ -32,8 +32,13 @@ button, .button{
 .formContainer{
   margin-top: 10vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.errorText{
+  color: red;
 }
 
 .signinForm{

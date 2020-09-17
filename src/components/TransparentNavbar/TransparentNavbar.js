@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { userContext } from '../../App';
+import { signOut } from '../../firebase/firebase';
 import logo from "../../images/Logo.svg";
 
 const TransparentNavbar = () => {
@@ -27,6 +28,10 @@ const TransparentNavbar = () => {
     const blackText = {
         color: "black",
         margin:"0 1vw"
+    }
+
+    const handleSignOut = () => {
+        signOut().then(user => setLoggedinUser({}));
     }
     return (
         <Navbar bg="transparent" expand="lg">
@@ -59,7 +64,7 @@ const TransparentNavbar = () => {
                     <Nav.Link href="#contact" style={whiteBg ? blackText : whiteText}>Contact</Nav.Link>
                     {
                         loggedinUser.loggedIn ?
-                            <h3>{loggedinUser.name}</h3> 
+                            <button onClick={handleSignOut}>Sign out({loggedinUser.displayName})</button>
                             : <Link to="/login"><button>Log in</button></Link>
                     }
                 </Nav>
