@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { userContext } from '../../App';
-import { emailLogIn, facebookSignIn, googleSignIn, initializeLogInFramework, recoverPasswordViaEmail } from '../../firebase/firebase';
-import fb from '../../images/Icon/fb.png';
-import google from '../../images/Icon/google.png';
+import { initializeLogInFramework, recoverPasswordViaEmail } from '../../firebase/firebase';
 
 
 const UpdatePassword = () => {
@@ -15,14 +13,8 @@ const UpdatePassword = () => {
 
     setWhiteBg(true);
 
-    const { user } = useContext(userContext);
-    const [loggedinUser, setLoggedinUser] = user;
     const [newUserInfo, setNewUserInfo] = useState({});
     const history = useHistory();
-    const location = useLocation();
-
-    const { from } = location.state || { from: { pathname: "/" } };
-
 
     const handleBlur = event => {
         let isFieldValid = true;
@@ -48,6 +40,7 @@ const UpdatePassword = () => {
         recoverPasswordViaEmail(data.email)
         .then(res => {
             if(res) {
+                alert(`Recovery email has sent to ${data.email}`);
                 history.replace('/login');
             }
         });
@@ -56,7 +49,6 @@ const UpdatePassword = () => {
     return (
         <div className="formPage">
             <div className="formContainer">
-                {loggedinUser.error && <p className="errorText">*{loggedinUser.error}</p>}
                 <form className="signinForm" onSubmit={handleSubmit(handlePasswordRecovery)}>
                     <div className="formTitle"><h1>Password Recovery</h1></div><br />
 
