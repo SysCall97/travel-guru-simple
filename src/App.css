@@ -134,9 +134,9 @@ button, .button{
 
 .googleMapContainer{
   position: relative;
-  width: 30%;
+  min-width: 400px;
   margin-top: 10vh;
-  padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+  padding-bottom: 56.25%;
 }
 .googleMapContainer > *{
   display: block;
@@ -147,6 +147,6 @@ button, .button{
   left: 0;
   margin: 0;
   padding: 0;
-  height: 80%;
-  width: 100%;
+  height: 100%;
+  width: 80%;
 }
