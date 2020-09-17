@@ -83,6 +83,8 @@ const Login = () => {
         if (isFieldValid) {
             const UserInfo = { ...newUserInfo };
             UserInfo[event.target.name] = event.target.value;
+            if(event.target.name === "email") UserInfo["emailError"] = "";
+            else if(event.target.name === "password") UserInfo["passwordError"] = "";
             setNewUserInfo(UserInfo);
         }
     }

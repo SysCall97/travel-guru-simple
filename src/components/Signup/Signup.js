@@ -61,25 +61,36 @@ const Signup = () => {
     const handleBlur = event => {
         let isFieldValid = true;
         if (event.target.name === "email") {
-            const isEmailValid = /\S+@\S+\.\S+/.test(event.target.value);
-            isFieldValid = isEmailValid;
-            if (!isFieldValid) {
+            isFieldValid = /\S+@\S+\.\S+/.test(event.target.value);
+
+            if(!isFieldValid) {
                 const UserInfo = { ...newUserInfo };
-                UserInfo["emailError"] = "your email is not in right format";
+                UserInfo["emailError"] = "Your email is not in right format";
                 setNewUserInfo(UserInfo);
             }
         } else if (event.target.name === "password") {
-            const isPasswordValid = event.target.value.length > 6 && /\d{1}/.test(event.target.value);
-            isFieldValid = isPasswordValid;
-            if (!isFieldValid) {
+            isFieldValid = event.target.value.length > 6 && /\d{1}/.test(event.target.value);
+            
+            if(!isFieldValid) {
                 const UserInfo = { ...newUserInfo };
-                UserInfo["passwordError"] = "password must contain at least one numeric value";
+                UserInfo["passwordError"] = "Password must be 6 character long and contain at least one numeric value";
+                setNewUserInfo(UserInfo);
+            }
+        } else if(event.target.name === "confirmedPassword") {
+            isFieldValid = event.target.value.length > 6 && /\d{1}/.test(event.target.value);
+
+            if(!isFieldValid) {
+                const UserInfo = { ...newUserInfo };
+                UserInfo["confirmedPasswordError"] = "Password must be 6 character long and contain at least one numeric value";
                 setNewUserInfo(UserInfo);
             }
         }
-        if (isFieldValid) {
+        if(isFieldValid) {
             const UserInfo = { ...newUserInfo };
             UserInfo[event.target.name] = event.target.value;
+            if(event.target.name === "email") UserInfo["emailError"] = "";
+            else if(event.target.name === "password") UserInfo["passwordError"] = "";
+            else if(event.target.name === "confirmedPassword") UserInfo["confirmedPasswordError"] = "";
             setNewUserInfo(UserInfo);
         }
     }
@@ -90,13 +101,17 @@ const Signup = () => {
                 {loggedinUser.error && <p className="errorText">*{loggedinUser.error}</p>}
                 <form className="signinForm" onSubmit={handleSubmit(handleCreateAccount)}>
                     <div className="formTitle"><h1>Sign up</h1></div><br />
+                    
                     <input className="signInInput" name="firstName" type="text" placeholder="First Name" ref={register({ required: true })} /><br />
                     <input className="signInInput" name="lastName" type="text" placeholder="Last Name" ref={register({ required: true })} /><br />
+                    
                     {newUserInfo.emailError && <p className="errorText">*{newUserInfo.emailError}</p>}
                     <input className="signInInput" name="email" type="text" placeholder="Email" onBlur={handleBlur} ref={register({ required: true })} /><br />
+                    
                     {newUserInfo.passwordError && <p className="errorText">*{newUserInfo.passwordError}</p>}
                     <input className="signInInput" name="password" type="password" placeholder="Password" onBlur={handleBlur} ref={register({ required: true })} /><br />
-                    {newUserInfo.passwordError && <p className="errorText">*{newUserInfo.passwordError}</p>}
+                    
+                    {newUserInfo.confirmedPasswordError && <p className="errorText">*{newUserInfo.confirmedPasswordError}</p>}
                     <input className="signInInput" name="confirmedPassword" type="password" placeholder="Confirm Password" onBlur={handleBlur} ref={register({ required: true })} /><br />
 
                     <button style={{ width: "100%" }}>Create an account</button><br />
