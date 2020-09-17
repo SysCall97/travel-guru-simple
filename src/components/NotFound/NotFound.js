@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { userContext } from '../../App';
 
 const NotFound = () => {
+    const {background} = useContext(userContext);
+    const [whiteBg, setWhiteBg] = background;
+    setWhiteBg(false);
     return (
-        <div style={{textAlign: "center", color: "white", marginTop:"10%"}}>
+        <div className="notFound">
             <h1>404: Page Not Found</h1>
         </div>
     );

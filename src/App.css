@@ -1,6 +1,45 @@
 .App {
-  text-align: center;
-  
+  text-align: center; 
+}
+
+.homeContainer{
+  margin: 15vh 3vw 0 3vw;
+  padding-bottom: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.homeLeft{
+  color: white;
+  margin-bottom: 10vh;
+  width: 30%;
+}
+
+.homeAreaName{
+  font-weight: 500;
+  font-size: 300%;
+}
+
+.bookingContainer{
+  margin: 15vh 9vw 0 9vw;
+  padding-bottom: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookingForm{
+  width: 25rem;
+  height: 65vh;
+  background-color: white;
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px, solid black;
+  border-radius: 20px;
 }
 
 button, .button{
@@ -149,4 +188,22 @@ button, .button{
   padding: 0;
   height: 100%;
   width: 80%;
+}
+
+.notFound{
+  text-align: center; 
+  color: white;
+  margin-top: 10%;
+  padding-bottom: 80vh;
+}
+
+.hotelCardText{
+  display: flex;
+  align-items: top;
+  height: max-content;
+}
+
+.hotelRating{
+  font-weight: 500;
+  margin-left: .5vw;
 }

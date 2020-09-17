@@ -18,9 +18,9 @@ const HotelCard = (props) => {
                         {
                             hotel.features.map(feature => <p className="card-text" style={{color: "gray"}}>{feature}</p>)
                         }
-                        <p className="card-text" style={{display:"flex", alignItems:"top", height: "max-content"}}>
+                        <p className="card-text hotelCardText">
                             <img src={star_1} alt="" height="20" />
-                            <span style={{fontWeight:"500", marginLeft: ".5vw"}}>{hotel.rating}({hotel.reviewer})</span>
+                            <span className="hotelRating">{hotel.rating}({hotel.reviewer})</span>
                             <h5 style={{fontWeight:"500", marginLeft: "3vw"}}>{hotel.cost}/<small style={{color: "gray"}}>night</small></h5>
                         </p>
                     </div>

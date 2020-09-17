@@ -31,22 +31,9 @@ const Home = () => {
     }
 
     return (
-        <div style={{
-            margin: "15vh 3vw 0 3vw",
-            paddingBottom: "20vh",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between"
-        }}>
-            <div style={{
-                color:"white",
-                marginBottom: "10vh",
-                width: "30%"
-            }}>
-                <h3 style={{
-                    fontWeight: "400",
-                    fontSize: "100px"
-                }}>{selectedAreaName}</h3>
+        <div className="homeContainer">
+            <div className="homeLeft">
+                <h3 className="homeAreaName"> {selectedAreaName} </h3>
                 <p>{selectedAreaDescription}</p>
                 <Link to={`booking/${selectedAreaName}`}>
                     <button>Booking</button>
