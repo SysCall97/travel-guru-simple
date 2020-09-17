@@ -65,7 +65,7 @@ const Booking = () => {
                 <input className="input" name="to" type="date" ref={register({ required: true })} onBlur={handleBlur} />
                 {errors.to && <span>This field is required</span>}
                 <br />
-                <Link to={`/search/${selectedArea.name}`}>
+                <Link to={`/search/${selectedArea.name.toLowerCase()}`}>
                     <input type="submit" className="button" placeholder="Start Booking"/>
                 </Link>
             </form>

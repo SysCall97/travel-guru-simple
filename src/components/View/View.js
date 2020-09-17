@@ -19,44 +19,48 @@ const View = () => {
     const noBg = {
         backgroundColor: "white"
     }
-    const {background} = useContext(userContext);
+    const { background } = useContext(userContext);
     const [whiteBg, setWhiteBg] = background;
     return (
         <div style={whiteBg ? noBg : imgBg}>
-        <BrowserRouter>
-            <TransparentNavbar />
-            <Switch>
-                
-                <Route exact path="/">
-                    <Home />
-                </Route>
+            <BrowserRouter>
+                <TransparentNavbar />
+                <Switch>
 
-                <Route path="/home">
-                    <Home />
-                </Route>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
 
-                <Route path="/booking/:name">
-                    <Booking />
-                </Route>
+                    <Route path="/home">
+                        <Home />
+                    </Route>
 
-                <PrivateRoute path="/search/:name">
+                    <Route path="/booking/:name">
+                        <Booking />
+                    </Route>
+
+                    {/* <PrivateRoute path="/search/:name">
                     <Search />
-                </PrivateRoute>
+                </PrivateRoute> */}
 
-                <Route path="/login">
-                    <Login />
-                </Route>
+                    <Route path="/search/:name">
+                        <Search />
+                    </Route>
 
-                <Route path="/signup">
-                    <Signup />
-                </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
 
-                <Route path="*">
-                    <NotFound />
-                </Route>
+                    <Route path="/signup">
+                        <Signup />
+                    </Route>
 
-            </Switch>
-        </BrowserRouter>
+                    <Route path="*">
+                        <NotFound />
+                    </Route>
+
+                </Switch>
+            </BrowserRouter>
         </div>
     );
 };
