@@ -101,6 +101,7 @@ const Login = () => {
 
                     {newUserInfo.passwordError && <p className="errorText">*{newUserInfo.passwordError}</p>}
                     <input className="signInInput" name="password" type="password" placeholder="Password" onBlur={handleBlur} ref={register({ required: true })} /><br />
+                    <Link to="/updatePassword" className="createAccount ml-auto"><span style={{cursor: "pointer"}}>Forgot Password</span></Link> <br />
 
                     <button style={{ width: "100%" }}>Log in</button><br />
                     <p>Don’t have an account? <Link to="/signup"><span className="createAccount">Create an account</span></Link></p>

@@ -10,6 +10,7 @@ import Search from '../Search/Search';
 import TransparentNavbar from '../TransparentNavbar/TransparentNavbar';
 import backgroundImg from '../../images/Image/Rectangle_1.png';
 import Signup from '../Signup/Signup';
+import UpdatePassword from '../UpdatePassword/UpdatePassword';
 
 const View = () => {
     const imgBg = {
@@ -49,6 +50,10 @@ const View = () => {
 
                     <Route path="/signup">
                         <Signup />
+                    </Route>
+
+                    <Route path="/updatePassword">
+                        <UpdatePassword />
                     </Route>
 
                     <Route path="*">
