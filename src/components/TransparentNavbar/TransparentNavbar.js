@@ -13,7 +13,7 @@ const TransparentNavbar = () => {
     const {user} = useContext(userContext);
     const [loggedinUser, setLoggedinUser] = user;
     const {background} = useContext(userContext);
-    const [whiteBg, setWhiteBg] = background;
+    const [whiteBg] = background;
 
     const whiteLogo = {
         filter: "brightness(0) invert(1)"
