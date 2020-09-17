@@ -138,6 +138,6 @@ button, .button{
   margin-left: 5%;
   margin-top: 10vh;
   height: 80vh;
-  border: 1px solid gray;
+  /* border: 1px solid black; */
   border-radius: 20px;
 }

@@ -8,7 +8,7 @@ const Booking = () => {
     const { register, errors } = useForm();
     const selectedArea = areas.find(area => area.name === data.name);
     
-    localStorage.setItem('booking', JSON.stringify({destination: selectedArea.name}));
+    localStorage.setItem('booking', JSON.stringify({destination: selectedArea.name, lat: selectedArea.lat, lng: selectedArea.lng}));
 
     const handleBlur = event => {
         let booking = JSON.parse(localStorage.getItem('booking'));

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { userContext } from '../../App';
 import {hotels} from '../../hotelInfo/hotelInfo'
 import HotelCard from '../HotelCard/HotelCard';
+import ShowMap from '../ShowMap/ShowMap';
 
 const Search = () => {
     const convertDateToFormat = (date) => {
@@ -30,6 +31,7 @@ const Search = () => {
             </div>
 
             <div className="googleMapContainer">
+                <ShowMap destination={booking.destination} lat={booking.lat} lng={booking.lng} />
             </div>
         </div>
     );
