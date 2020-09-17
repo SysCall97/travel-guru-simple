@@ -8,7 +8,13 @@ const Booking = () => {
     const { register, errors } = useForm();
     const selectedArea = areas.find(area => area.name === data.name);
     
-    localStorage.setItem('booking', JSON.stringify({destination: selectedArea.name, lat: selectedArea.lat, lng: selectedArea.lng}));
+    localStorage.setItem('booking', JSON.stringify({
+        destination: selectedArea.name, 
+        lat: selectedArea.lat, 
+        lng: selectedArea.lng,
+        to: new Date().toISOString(),
+        from: new Date().toISOString(),
+    }));
 
     const handleBlur = event => {
         let booking = JSON.parse(localStorage.getItem('booking'));
@@ -50,19 +56,19 @@ const Booking = () => {
                     borderRadius: "20px"
                 }}>
                 <label htmlFor="">Origin</label>
-                <input className="input" name="origin" ref={register({ required: true })} onBlur={handleBlur} placeholder="your city" />
+                <input className="input" name="origin" ref={register({ required: true })} onBlur={handleBlur} placeholder="your city" required/>
                 {errors.origin && <span>This field is required</span>}
 
                 <label htmlFor="">Destination</label>
-                <input className="input" name="destination" ref={register({ required: true })} defaultValue={selectedArea.name} />
+                <input className="input" name="destination" ref={register({ required: true })} defaultValue={selectedArea.name} required/>
                 {errors.destination && <span>This field is required</span>}
 
                 <label htmlFor="">From</label>
-                <input className="input" name="from" type="date" ref={register({ required: true })} onBlur={handleBlur} />
+                <input className="input" name="from" type="date" ref={register({ required: true })} onBlur={handleBlur} defaultValue="01/01/2001"/>
                 {errors.from && <span>This field is required</span>}
 
                 <label htmlFor="">To</label>
-                <input className="input" name="to" type="date" ref={register({ required: true })} onBlur={handleBlur} />
+                <input className="input" name="to" type="date" ref={register({ required: true })} onBlur={handleBlur} defaultValue="01/01/2001"/>
                 {errors.to && <span>This field is required</span>}
                 <br />
                 <Link to={`/search/${selectedArea.name.toLowerCase()}`}>

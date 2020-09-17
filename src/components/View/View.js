@@ -39,13 +39,9 @@ const View = () => {
                         <Booking />
                     </Route>
 
-                    {/* <PrivateRoute path="/search/:name">
-                    <Search />
-                </PrivateRoute> */}
-
-                    <Route path="/search/:name">
+                    <PrivateRoute path="/search/:name">
                         <Search />
-                    </Route>
+                    </PrivateRoute>
 
                     <Route path="/login">
                         <Login />
