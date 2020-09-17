@@ -38,10 +38,10 @@ const Booking = () => {
                 <input className="input" name="destination" ref={register({ required: true })} defaultValue={selectedArea.name} required/>
                 
                 <label htmlFor="">From</label>
-                <input className="input" name="from" type="date" ref={register({ required: true })} onBlur={handleBlur} defaultValue="01/01/2001"/>
+                <input className="input" name="from" type="date" ref={register({ required: true })} onBlur={handleBlur}/>
                 
                 <label htmlFor="">To</label>
-                <input className="input" name="to" type="date" ref={register({ required: true })} onBlur={handleBlur} defaultValue="01/01/2001"/>
+                <input className="input" name="to" type="date" ref={register({ required: true })} onBlur={handleBlur}/>
                 <br />
                 
                 <Link to={`/search/${selectedArea.name.toLowerCase()}`}>
